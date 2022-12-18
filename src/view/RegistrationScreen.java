@@ -160,7 +160,7 @@ public class RegistrationScreen extends javax.swing.JFrame {
         String passwordd = uPassword.getText();
         String confirmPass = cPassword.getText();
         
-        if (firstName.equals("")|| lastName.equals("")|| email.equals("")|| dob.equals("")){
+        if (firstName.equals("")|| lastName.equals("")|| email.equals("")|| dob.equals(" ")){
             JOptionPane.showMessageDialog(this,"empty field not accepted!!", "error",JOptionPane.ERROR_MESSAGE);
                   
         }

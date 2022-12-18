@@ -291,6 +291,8 @@ public class NewJFrame1 extends javax.swing.JFrame {
 
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
         // TODO add your handling code here:
+        
+        
     }//GEN-LAST:event_button1ActionPerformed
 
     /**
