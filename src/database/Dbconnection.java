@@ -1,68 +1,91 @@
-package database;
-
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package view;
 
 
 import javax.swing.*;
-
 import java.sql.*;
 
+public class dbConnection {
+   public Connection connection;
+   
+   Statement statement;
+
+   ResultSet resultSet;
+
+   int value;
+
+   public dbConnection(){
+
+       try {
 
 
-public class Dbconnection {
+           String username = "onlinechunab";
 
-    public Connection connection;
+           String password = "onlinechunab";
 
-    Statement statement;
-
-    ResultSet resultSet;
-
-    int value;
+           Class.forName("com.mysql.cj.jdbc.Driver");
 
 
+           connection = DriverManager.getConnection(
 
-    public Dbconnection(){
+                   "jdbc:mysql://db4free.net:3306/onlinechunab",username,password);
 
-        try {
+                   if(connection!=null){
 
-            String username = "onlinechunab";
+                       System.out.println("Connected to database");
 
-            String password = "onlinechunab";
+                   }else{
 
-            Class.forName("com.mysql.cj.jdbc.Driver");
+                       System.out.println("Error connecting to database");
 
-            connection = DriverManager.getConnection(
+                   }
+                   
+           statement = connection.createStatement();
 
-                    "jdbc:mysql://db4free.net/onlinechunab",username,password);
+       }catch (Exception e){
 
-
-
-                    if(connection!=null){
-
-                        System.out.println("Connected to database");
-
-                    }else{
-
-                        System.out.println("Error connecting to database");
-
-                    }
-
-            statement = connection.createStatement();
-
-        }catch (Exception e){
-
-            e.printStackTrace();
-
-        }
-
-    }
+           e.printStackTrace();
 
 
 
-    // Via the use of sql query
+       }
+       
+   }
 
-    // insert, update and delete
 
-    public int manipulate(String query){
+   // Via the use of sql query
+
+   // insert, update and delete
+
+   public int executeQuery(String query){
+
+       try {
+
+           value = statement.executeUpdate(query);
+
+           connection.close();
+
+       }catch (SQLIntegrityConstraintViolationException ex){
+
+           JOptionPane.showMessageDialog(null, "These details already exist!");
+
+       }catch (SQLException e){
+
+           e.printStackTrace();
+
+       }
+
+       return value;
+
+
+   }
+   
+   
+   
+    public int manipulate(String query) {
 
         try {
 
@@ -70,11 +93,11 @@ public class Dbconnection {
 
             connection.close();
 
-        }catch (SQLIntegrityConstraintViolationException ex){
+        } catch (SQLIntegrityConstraintViolationException ex) {
 
             JOptionPane.showMessageDialog(null, "These details already exist!");
 
-        }catch (SQLException e){
+        } catch (SQLException e) {
 
             e.printStackTrace();
 
@@ -84,15 +107,13 @@ public class Dbconnection {
 
     }
 
-
-
-    public ResultSet retrieve(String query){
+    public ResultSet retrieve(String query) {
 
         try {
 
             resultSet = statement.executeQuery(query);
 
-        }catch (SQLException e){
+        } catch (SQLException e) {
 
             e.printStackTrace();
 
@@ -102,16 +123,15 @@ public class Dbconnection {
 
     }
 
+   public static void main(String[] args) {
 
+       new dbConnection();
 
-    public static void main(String[] args) {
+   }
 
-        new Dbconnection();
+//    public PreparedStatement prepareStatement(String query) {
+//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+//    }
 
-        
-
-    }
-
-    
+   
 }
-
