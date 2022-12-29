@@ -26,48 +26,7 @@ public class StarRating extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        star1 = new star.rating.Star();
-        star2 = new star.rating.Star();
-        star3 = new star.rating.Star();
-        star4 = new star.rating.Star();
-        star5 = new star.rating.Star();
-
         setLayout(new java.awt.GridLayout(1, 5));
-
-        star1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                star1ActionPerformed(evt);
-            }
-        });
-        add(star1);
-
-        star2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                star2ActionPerformed(evt);
-            }
-        });
-        add(star2);
-
-        star3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                star3ActionPerformed(evt);
-            }
-        });
-        add(star3);
-
-        star4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                star4ActionPerformed(evt);
-            }
-        });
-        add(star4);
-
-        star5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                star5ActionPerformed(evt);
-            }
-        });
-        add(star5);
     }// </editor-fold>//GEN-END:initComponents
 
     private void star1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_star1ActionPerformed
@@ -137,10 +96,5 @@ public class StarRating extends javax.swing.JPanel {
         
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private star.rating.Star star1;
-    private star.rating.Star star2;
-    private star.rating.Star star3;
-    private star.rating.Star star4;
-    private star.rating.Star star5;
     // End of variables declaration//GEN-END:variables
 }
