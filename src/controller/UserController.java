@@ -1,18 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Other/File.java to edit this template
- */
 package controller;
 
 /**
  *
  * @author user
  */
-import database.Dbconnection;
+import database.dbConnection;
 import model.UserModel;
 
 public class UserController{
-    Dbconnection dbconnection;
+    dbConnection dbconnection;
     public int insertUser(UserModel user){
         String firstName = user.getFirstName();
         String lastName = user.getLastName();
@@ -23,7 +19,7 @@ public class UserController{
     
     String insertQuery = String.format("insert into userdata(firstName,lastName,username,national_id,passwordd) values ('%s','%s','%s','%s','%s')",firstName,lastName,username,dob,passwordd);
     System.out.println(insertQuery);
-    dbconnection = new Dbconnection();
+    dbconnection = new dbConnection();
     int result = dbconnection.manipulate(insertQuery);
     return result;
 }
