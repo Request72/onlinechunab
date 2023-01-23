@@ -51,6 +51,7 @@ public class login extends javax.swing.JFrame {
         lbl_password = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        showpas = new javax.swing.JCheckBox();
 
         jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -158,6 +159,13 @@ public class login extends javax.swing.JFrame {
             }
         });
 
+        showpas.setText("Show Pass");
+        showpas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showpasActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout usernameboxLayout = new javax.swing.GroupLayout(usernamebox);
         usernamebox.setLayout(usernameboxLayout);
         usernameboxLayout.setHorizontalGroup(
@@ -168,16 +176,19 @@ public class login extends javax.swing.JFrame {
             .addGroup(usernameboxLayout.createSequentialGroup()
                 .addGroup(usernameboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(usernameboxLayout.createSequentialGroup()
-                        .addGap(70, 70, 70)
+                        .addContainerGap()
                         .addGroup(usernameboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(usernameboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(lbl_password, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lbl_username, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(t1, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(t2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE))
+                            .addGroup(usernameboxLayout.createSequentialGroup()
+                                .addGroup(usernameboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(lbl_password, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lbl_username, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(t1, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(t2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addComponent(showpas, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(usernameboxLayout.createSequentialGroup()
                                 .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(51, 51, 51)
@@ -204,7 +215,9 @@ public class login extends javax.swing.JFrame {
                 .addGap(43, 43, 43)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
-                .addComponent(t2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(usernameboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(t2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(showpas))
                 .addGap(18, 18, 18)
                 .addComponent(lbl_password)
                 .addGap(24, 24, 24)
@@ -233,6 +246,7 @@ System.exit(0);        // TODO add your handling code here:
         RegistrationScreen rg=new RegistrationScreen();
         rg.show();
         dispose();
+        
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
@@ -319,7 +333,27 @@ System.exit(0);        // TODO add your handling code here:
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        forget f=new forget();
+        f.show();
+        
+        
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void showpasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showpasActionPerformed
+        // TODO add your handling code here:
+        
+        
+        
+        if(showpas.isSelected())
+       {
+           t2.setEchoChar((char)0);
+             
+       }
+       else
+       {
+          t2.setEchoChar('*'); 
+       }
+    }//GEN-LAST:event_showpasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -371,6 +405,7 @@ System.exit(0);        // TODO add your handling code here:
     private javax.swing.JLabel lbl_password;
     private javax.swing.JLabel lbl_username;
     private javax.swing.JButton login;
+    private javax.swing.JCheckBox showpas;
     private javax.swing.JTextField t1;
     private javax.swing.JPasswordField t2;
     private javax.swing.JPanel usernamebox;

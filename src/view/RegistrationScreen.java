@@ -153,14 +153,15 @@ public class RegistrationScreen extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        String firstName = fName.getText();
-        String lastName = lName.getText();
-        String email = uEmail.getText();
-        String dob = uNid.getText();
-        String passwordd = uPassword.getText();
-        String confirmPass = cPassword.getText();
         
-        if (firstName.equals("")|| lastName.equals("")|| email.equals("")|| dob.equals(" ")){
+         String firstName = fName.getText();
+         String lastName = lName.getText();
+         String email = uEmail.getText();
+         String dob = uNid.getText();
+         String passwordd = uPassword.getText();
+         String confirmPass = cPassword.getText();
+        
+        if (firstName.equals("")|| lastName.equals("")|| email.equals("")|| dob.equals("")){
             JOptionPane.showMessageDialog(this,"empty field not accepted!!", "error",JOptionPane.ERROR_MESSAGE);
                   
         }
@@ -172,6 +173,8 @@ public class RegistrationScreen extends javax.swing.JFrame {
             int result = JOptionPane.showConfirmDialog(null, "Registration sucessfull, Would you like to Login?", "Confirmation", JOptionPane.OK_OPTION);
 
             if (result == JOptionPane.OK_OPTION) {
+                login l=new login();
+                l.show();
                 
                 this.dispose();
             }
