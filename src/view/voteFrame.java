@@ -16,6 +16,8 @@ import model.votemodel;
 import java.sql.*;
 import controller.UserController;
 import java.sql.ResultSet;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 
@@ -198,41 +200,62 @@ public class voteFrame extends javax.swing.JInternalFrame {
 
     private void submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitActionPerformed
 
-
-        String username=user.getText();
+        
+        String username=position.getText();
         String partyName = party.getText();
-        String positiontype =position.getText();
-        if (username.equals("")|| partyName.equals("")|| positiontype.equals("")){
+        String positiontype =user.getText();
+        String usernamee = "onlinechunab";
+        
+       
+
+        String password = "onlinechunab";
+        
+        try {
+            Connection con = DriverManager.getConnection("jdbc:mysql://db4free.net:3306/onlinechunab",usernamee,password);
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT username FROM userdata");
+            while (rs.next()) {
+               String user = rs.getString("username");
+            }
+            con.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(voteFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+                   
+        if (username.equals("")||  partyName.equals("")|| positiontype.equals("")){
         JOptionPane.showMessageDialog(this, "Empty value not accepted", "Error", JOptionPane.ERROR_MESSAGE);
         
         
         
-        }else{
-            votemodel user1=new votemodel(username,partyName,positiontype);
-            votecontroller uc=new votecontroller();
-            uc.insertUser(user1);
-            JOptionPane.showMessageDialog(null, "vote Submitted");
-            this.dispose();
-
-            
         }
         
-         
-        
-        
-        
-        
-        
-
-        
-
+       
        
         
-        
+        else{
+            if(partyName.equals("Communist")||partyName.equals("communist")|| partyName.equals("Congress") || partyName.equals("congress") || partyName.equals(" RaPraPa") || partyName.equals("raprapa") || partyName.equals("RaSwoPa") || partyName.equals("raswopa") || positiontype.equals("Mayor") || positiontype.equals("mayor") || positiontype.equals("MP")||positiontype.equals("mp")){
+           
+               if(user.equals(position.getText())){
+                    votemodel user1=new votemodel(username,partyName,positiontype);
+                    votecontroller uc=new votecontroller();
+                    uc.insertUser(user1);
+                    JOptionPane.showMessageDialog(null, "vote Submitted");
+                    this.dispose();
+               }else{
+                   JOptionPane.showMessageDialog(this, "Incorrect Username", "Error", JOptionPane.ERROR_MESSAGE);
 
-    
-                
+                   
+               }
+            }else{
+               
+                JOptionPane.showMessageDialog(this, "Incorrect Partyname or Postion of Candidate ", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+
+
         
+        }
+  
 
     }//GEN-LAST:event_submitActionPerformed
 

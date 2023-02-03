@@ -15,6 +15,12 @@ import java.sql.*;
 public class chunabController {
     dbConnection dbConnection;
     
+    /**
+     *
+     * @param email
+     * @param password
+     * @return
+     */
     public ResultSet retrieveUser(String email, String password){
  
         String retrieveQuery = String.format(
@@ -32,5 +38,6 @@ public class chunabController {
         int result = dbConnection.manipulate(deleteQuery);
         return result;
     }
+    
     
 }
